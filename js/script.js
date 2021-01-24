@@ -1,3 +1,56 @@
+// QUESTION 1
+
+const cat = {
+  complain: function () {
+    console.log("Meow!");
+  },
+};
+
+cat.complain();
+
+// Answer: "Meow!"
+
+// QUESTION 2
+
+heading = document.querySelector("h3");
+
+heading.innerHTML = "Updated Subheading";
+
+// Answer: "Updated Subheading" on h3.
+
+// Question 3
+
+heading.style.fontSize = "2em";
+
+// Answer: FontSize changed to "2em"
+
+// Question 4
+
+heading.classList.add("Subheading");
+
+// Question 5
+
+// Answer: Class "subheading" added to h3.
+
+paragraphs = document.querySelectorAll("p");
+
+for (let i = 0; i < paragraphs.length; i++) {
+  paragraphs[i].style.color = "red";
+}
+
+// Answer: Selected all P tags, looped through and changed color to red.
+
+// Question 6
+
+const resultsContainer = document.querySelector(".results");
+
+resultsContainer.innerHTML = "<p>" + "New paragraph" + "</p>";
+resultsContainer.style.background = "yellow";
+
+// Answer = Added new paragraph changed background to yellow
+
+// Question 7
+
 const cats = [
   {
     name: "Blob",
@@ -12,28 +65,38 @@ const cats = [
   },
 ];
 
-// QUESTION 1
-
-const cat = "complain";
-
-function talk(cat) {
-  console.log(cat);
+function printList(list) {
+  for (let i = 0; i < list.length; i++) {
+    console.log(list[i].name);
+  }
 }
 
-talk("Meow!");
+printList(cats);
 
-// Answer: "Meow!"
+// Answer: "Blob, "Harold", "Blurt"
 
-// QUESTION 2
+// Question 8
 
-heading = document.querySelector("h3");
+let catPrint = "";
 
-heading.innerHTML = `Updated Subheading`;
+function createCats(cats) {
+  for (let i = 0; i < cats.length; i++) {
+    catPrint += "<h5>" + cats[i].name + "</h5>";
 
-// Question 3
+    let catAge = "Age uknown";
 
-heading.style.fontSize = "2em";
+    if (cats[i].age) {
+      catAge = cats[i].age;
+    }
 
-// Question 4
+    catPrint += "<p>" + catAge + "</p>";
+  }
+  return catPrint;
+}
 
-heading.classList.add("Subheading");
+const finalHtml = createCats(cats);
+
+const catContainer = document.querySelector(".cat-container");
+catContainer.innerHTML = finalHtml;
+
+// Answer: Blob 10, Harold Age uknown, Blurt 21
